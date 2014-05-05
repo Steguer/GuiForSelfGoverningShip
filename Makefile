@@ -199,6 +199,30 @@ src/Parsser.cpp.s:
 	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/Parsser.cpp.s
 .PHONY : src/Parsser.cpp.s
 
+src/PathConfigLeaf.o: src/PathConfigLeaf.cpp.o
+.PHONY : src/PathConfigLeaf.o
+
+# target to build an object file
+src/PathConfigLeaf.cpp.o:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/PathConfigLeaf.cpp.o
+.PHONY : src/PathConfigLeaf.cpp.o
+
+src/PathConfigLeaf.i: src/PathConfigLeaf.cpp.i
+.PHONY : src/PathConfigLeaf.i
+
+# target to preprocess a source file
+src/PathConfigLeaf.cpp.i:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/PathConfigLeaf.cpp.i
+.PHONY : src/PathConfigLeaf.cpp.i
+
+src/PathConfigLeaf.s: src/PathConfigLeaf.cpp.s
+.PHONY : src/PathConfigLeaf.s
+
+# target to generate assembly for a file
+src/PathConfigLeaf.cpp.s:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/PathConfigLeaf.cpp.s
+.PHONY : src/PathConfigLeaf.cpp.s
+
 src/PyScriptConfigurationWindow.o: src/PyScriptConfigurationWindow.cpp.o
 .PHONY : src/PyScriptConfigurationWindow.o
 
@@ -266,6 +290,9 @@ help:
 	@echo "... src/Parsser.o"
 	@echo "... src/Parsser.i"
 	@echo "... src/Parsser.s"
+	@echo "... src/PathConfigLeaf.o"
+	@echo "... src/PathConfigLeaf.i"
+	@echo "... src/PathConfigLeaf.s"
 	@echo "... src/PyScriptConfigurationWindow.o"
 	@echo "... src/PyScriptConfigurationWindow.i"
 	@echo "... src/PyScriptConfigurationWindow.s"

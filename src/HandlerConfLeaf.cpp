@@ -33,16 +33,16 @@ HandlerConfLeaf::HandlerConfLeaf(WindDirection dir): HandlerConfLeaf()
 	switch(dir)
 	{
 		case SIDE_WIND:
-			m_editPyScriptHelmName->insert(QString((Parsser::readConfigStr("HelmHandlerSideWindPyScript")).c_str()));
-			m_editPyScriptSailName->insert(QString((Parsser::readConfigStr("SailHandlerSideWindPyScript")).c_str()));
+			m_editPyScriptHelmName->setText(QString((Parsser::readConfigStr("HelmHandlerSideWindPyScript")).c_str()));
+			m_editPyScriptSailName->setText(QString((Parsser::readConfigStr("SailHandlerSideWindPyScript")).c_str()));
 			break;
 		case FRONT_WIND:
-			m_editPyScriptHelmName->insert(QString((Parsser::readConfigStr("HelmHandlerFrontWindPyScript")).c_str()));
-			m_editPyScriptSailName->insert(QString((Parsser::readConfigStr("SailHandlerFrontWindPyScript")).c_str()));
+			m_editPyScriptHelmName->setText(QString((Parsser::readConfigStr("HelmHandlerFrontWindPyScript")).c_str()));
+			m_editPyScriptSailName->setText(QString((Parsser::readConfigStr("SailHandlerFrontWindPyScript")).c_str()));
 			break;
 		case BACK_WIND:
-			m_editPyScriptHelmName->insert(QString((Parsser::readConfigStr("HelmHandlerBackWindPyScript")).c_str()));
-			m_editPyScriptSailName->insert(QString((Parsser::readConfigStr("SailHandlerBackWindPyScript")).c_str()));
+			m_editPyScriptHelmName->setText(QString((Parsser::readConfigStr("HelmHandlerBackWindPyScript")).c_str()));
+			m_editPyScriptSailName->setText(QString((Parsser::readConfigStr("SailHandlerBackWindPyScript")).c_str()));
 			break;
 		default:
 			break;
@@ -59,27 +59,36 @@ HandlerConfLeaf::~HandlerConfLeaf()
 	delete m_editPyScriptHelmName;
 	delete m_exploreHelmButton;
 	delete m_exploreSailButton;
-	delete m_fileDialog;
 }
 
 void HandlerConfLeaf::collectScriptNameHelm()
 {
 	m_scriptHelmName = (((QFileDialog::getOpenFileName(this).split("/")).last()).split(".")).first();
-	m_editPyScriptHelmName->insert(m_scriptHelmName);
+	m_editPyScriptHelmName->setText(m_scriptHelmName);
 }
 
 void HandlerConfLeaf::collectScriptNameSail()
 {
 	m_scriptSailName = (((QFileDialog::getOpenFileName(this).split("/")).last()).split(".")).first();
-	m_editPyScriptSailName->insert(m_scriptSailName);
+	m_editPyScriptSailName->setText(m_scriptSailName);
 }
 
-QString HandlerConfLeaf::getScriptNameHelm()
+QString HandlerConfLeaf::getScriptNameHelm() const
 {
 	return m_editPyScriptHelmName->text();
 }
 
-QString HandlerConfLeaf::getScriptNameSail()
+QString HandlerConfLeaf::getScriptNameSail() const
 {
 	return m_editPyScriptSailName->text();
+}
+
+void HandlerConfLeaf::setScriptNameHelm(QString const& name)
+{
+	m_editPyScriptHelmName->setText(name);
+}
+
+void HandlerConfLeaf::setScriptNameSail(QString const& name)
+{
+	m_editPyScriptSailName->setText(name);
 }

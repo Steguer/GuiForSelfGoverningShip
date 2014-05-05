@@ -10,6 +10,8 @@ using namespace std;
 
 class Parsser
 {
+private:
+	static string m_filePath;
 public:
 	Parsser();
 	~Parsser();
@@ -20,7 +22,7 @@ public:
 		Json::Reader reader;
 
 		//Opening of the config file.
-		ifstream inFile("../../rsc/config.json");
+		ifstream inFile(m_filePath);
 
 		if(inFile)
 		{
@@ -64,7 +66,7 @@ public:
 		Json::StyledStreamWriter writer;
 
 		//Opening of the config file.
-		ifstream inFile("../../rsc/config.json");
+		ifstream inFile(m_filePath);
 
 		if(inFile)
 		{
@@ -76,7 +78,7 @@ public:
 			}
 			else
 			{
-				ofstream outFile("../../rsc/config.json");
+				ofstream outFile(m_filePath);
 	    		if(outFile)
 	    		{
 	    			root[id] = data.toStdString();
@@ -96,6 +98,9 @@ public:
 		}
 
 	}
+
+	static string getFilePath();
+	static void setFilePath(string const& newFilePath);
 };
 
 #endif

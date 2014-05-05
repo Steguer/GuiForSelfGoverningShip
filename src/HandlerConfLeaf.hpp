@@ -15,8 +15,10 @@ public:
 	HandlerConfLeaf(WindDirection dir);
 	~HandlerConfLeaf();	
 
-	QString getScriptNameHelm();
-	QString getScriptNameSail();
+	QString getScriptNameHelm() const;
+	QString getScriptNameSail() const;
+	void setScriptNameHelm(QString const& name);
+	void setScriptNameSail(QString const& name);
 
 public slots:
 	void collectScriptNameHelm();
@@ -30,7 +32,6 @@ private:
 	QLineEdit *m_editPyScriptSailName;
 	QPushButton *m_exploreHelmButton;
 	QPushButton *m_exploreSailButton;
-	QFileDialog *m_fileDialog;
 	QString m_scriptSailName;
 	QString m_scriptHelmName;
 };
