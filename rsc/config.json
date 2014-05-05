@@ -1,0 +1,21 @@
+
+{
+	"BackWindRotation" : 60,
+	"EnableHelmHandlerBackWindPyScript" : false,
+	"EnableHelmHandlerFrontWindPyScript" : false,
+	"EnableHelmHandlerSideWindPyScript" : false,
+	"EnableSailHandlerBackWindPyScript" : false,
+	"EnableSailHandlerFrontWindPyScript" : false,
+	"EnableSailHandlerSideWindPyScript" : false,
+	"FrontWindRotation" : 50,
+	"HelmHandlerBackWindPyScript" : "rrrrrrrrr",
+	"HelmHandlerFrontWindPyScript" : "doudouscriptTest",
+	"HelmHandlerSideWindPyScript" : "doudou2",
+	"MaxHelmAngle" : 45,
+	"SailHandlerBackWindPyScript" : "minou",
+	"SailHandlerFrontWindPyScript" : "scriptTest",
+	"SailHandlerSideWindPyScript" : "bite",
+	"ScriptPath" : "../../rsc",
+	"SpeedHelm" : 20,
+	"test" : "coucouSteven"
+}
