@@ -223,6 +223,30 @@ src/PathConfigLeaf.cpp.s:
 	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/PathConfigLeaf.cpp.s
 .PHONY : src/PathConfigLeaf.cpp.s
 
+src/PropertiesWindow.o: src/PropertiesWindow.cpp.o
+.PHONY : src/PropertiesWindow.o
+
+# target to build an object file
+src/PropertiesWindow.cpp.o:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/PropertiesWindow.cpp.o
+.PHONY : src/PropertiesWindow.cpp.o
+
+src/PropertiesWindow.i: src/PropertiesWindow.cpp.i
+.PHONY : src/PropertiesWindow.i
+
+# target to preprocess a source file
+src/PropertiesWindow.cpp.i:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/PropertiesWindow.cpp.i
+.PHONY : src/PropertiesWindow.cpp.i
+
+src/PropertiesWindow.s: src/PropertiesWindow.cpp.s
+.PHONY : src/PropertiesWindow.s
+
+# target to generate assembly for a file
+src/PropertiesWindow.cpp.s:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/PropertiesWindow.cpp.s
+.PHONY : src/PropertiesWindow.cpp.s
+
 src/PyScriptConfigurationWindow.o: src/PyScriptConfigurationWindow.cpp.o
 .PHONY : src/PyScriptConfigurationWindow.o
 
@@ -246,6 +270,30 @@ src/PyScriptConfigurationWindow.s: src/PyScriptConfigurationWindow.cpp.s
 src/PyScriptConfigurationWindow.cpp.s:
 	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/PyScriptConfigurationWindow.cpp.s
 .PHONY : src/PyScriptConfigurationWindow.cpp.s
+
+src/WidgetItem.o: src/WidgetItem.cpp.o
+.PHONY : src/WidgetItem.o
+
+# target to build an object file
+src/WidgetItem.cpp.o:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/WidgetItem.cpp.o
+.PHONY : src/WidgetItem.cpp.o
+
+src/WidgetItem.i: src/WidgetItem.cpp.i
+.PHONY : src/WidgetItem.i
+
+# target to preprocess a source file
+src/WidgetItem.cpp.i:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/WidgetItem.cpp.i
+.PHONY : src/WidgetItem.cpp.i
+
+src/WidgetItem.s: src/WidgetItem.cpp.s
+.PHONY : src/WidgetItem.s
+
+# target to generate assembly for a file
+src/WidgetItem.cpp.s:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/WidgetItem.cpp.s
+.PHONY : src/WidgetItem.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -293,9 +341,15 @@ help:
 	@echo "... src/PathConfigLeaf.o"
 	@echo "... src/PathConfigLeaf.i"
 	@echo "... src/PathConfigLeaf.s"
+	@echo "... src/PropertiesWindow.o"
+	@echo "... src/PropertiesWindow.i"
+	@echo "... src/PropertiesWindow.s"
 	@echo "... src/PyScriptConfigurationWindow.o"
 	@echo "... src/PyScriptConfigurationWindow.i"
 	@echo "... src/PyScriptConfigurationWindow.s"
+	@echo "... src/WidgetItem.o"
+	@echo "... src/WidgetItem.i"
+	@echo "... src/WidgetItem.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

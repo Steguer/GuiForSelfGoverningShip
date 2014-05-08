@@ -1,21 +1,21 @@
 
 {
-	"BackWindRotation" : 60,
+	"BackWindRotation" : 11,
 	"EnableHelmHandlerBackWindPyScript" : false,
 	"EnableHelmHandlerFrontWindPyScript" : false,
 	"EnableHelmHandlerSideWindPyScript" : false,
 	"EnableSailHandlerBackWindPyScript" : false,
 	"EnableSailHandlerFrontWindPyScript" : false,
 	"EnableSailHandlerSideWindPyScript" : false,
-	"FrontWindRotation" : 50,
+	"FrontWindRotation" : 11,
 	"HelmHandlerBackWindPyScript" : "rrrrrrrrr",
 	"HelmHandlerFrontWindPyScript" : "Testscript",
 	"HelmHandlerSideWindPyScript" : "doudouLeMeilleurDuMonde",
-	"MaxHelmAngle" : 45,
+	"MaxHelmAngle" : 11,
 	"SailHandlerBackWindPyScript" : "minou",
 	"SailHandlerFrontWindPyScript" : "scriptTest",
 	"SailHandlerSideWindPyScript" : "bite",
 	"ScriptPath" : "/home/steven/Documents/programming/SelfGoverningShipDev/selfgoverningship/software/rsc",
-	"SpeedHelm" : 20,
+	"SpeedHelm" : 11,
 	"test" : "coucouSteven"
 }

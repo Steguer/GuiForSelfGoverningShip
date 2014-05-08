@@ -55,16 +55,16 @@ PyScriptConfigurationWindow::~PyScriptConfigurationWindow()
 
 void PyScriptConfigurationWindow::save()
 {
-	Parsser::writeConfig("ScriptPath", m_pathConfigLeaf->getScriptPath());
+	Parsser::writeConfig("ScriptPath", (m_pathConfigLeaf->getScriptPath()).toStdString());
 
-	Parsser::writeConfig("HelmHandlerSideWindPyScript", m_sideWindLeaf->getScriptNameHelm());
-	Parsser::writeConfig("SailHandlerSideWindPyScript", m_sideWindLeaf->getScriptNameSail());
+	Parsser::writeConfig("HelmHandlerSideWindPyScript", (m_sideWindLeaf->getScriptNameHelm()).toStdString());
+	Parsser::writeConfig("SailHandlerSideWindPyScript", (m_sideWindLeaf->getScriptNameSail()).toStdString());
 
-	Parsser::writeConfig("HelmHandlerFrontWindPyScript", m_frontWindLeaf->getScriptNameHelm());
-	Parsser::writeConfig("SailHandlerFrontWindPyScript", m_frontWindLeaf->getScriptNameSail());
+	Parsser::writeConfig("HelmHandlerFrontWindPyScript", (m_frontWindLeaf->getScriptNameHelm()).toStdString());
+	Parsser::writeConfig("SailHandlerFrontWindPyScript", (m_frontWindLeaf->getScriptNameSail()).toStdString());
 
-	Parsser::writeConfig("HelmHandlerBackWindPyScript", m_backWindLeaf->getScriptNameHelm());
-	Parsser::writeConfig("SailHandlerBackWindPyScript", m_backWindLeaf->getScriptNameSail());
+	Parsser::writeConfig("HelmHandlerBackWindPyScript", (m_backWindLeaf->getScriptNameHelm()).toStdString());
+	Parsser::writeConfig("SailHandlerBackWindPyScript", (m_backWindLeaf->getScriptNameSail()).toStdString());
 
 	qApp->quit();
 }

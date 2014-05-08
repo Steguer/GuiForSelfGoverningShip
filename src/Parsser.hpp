@@ -16,7 +16,7 @@ public:
 	Parsser();
 	~Parsser();
 
-	static Json::Value readConfig(string const& id)
+	static Json::Value readConfigFile()
 	{
 		Json::Value root;
 		Json::Reader reader;
@@ -40,7 +40,12 @@ public:
 		    cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << endl;
 		}
 
-		return root[id];
+		return root;
+	}
+
+	static Json::Value readConfig(string const& id)
+	{
+		return Parsser::readConfigFile()[id];
 	}
 	
 	static int readConfigInt(string const& id)
@@ -81,7 +86,7 @@ public:
 				ofstream outFile(m_filePath);
 	    		if(outFile)
 	    		{
-	    			root[id] = data.toStdString();
+	    			root[id] = data;
 					writer.write(outFile, root);
 	    		}
 	    		else

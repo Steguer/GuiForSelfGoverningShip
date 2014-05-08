@@ -1,6 +1,6 @@
 #include "Parsser.hpp"
 
-string Parsser::m_filePath = "";
+string Parsser::m_filePath = "../../rsc/config.json";
 
 Parsser::Parsser()
 {
