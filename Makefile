@@ -175,6 +175,54 @@ src/HandlerConfLeaf.cpp.s:
 	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/HandlerConfLeaf.cpp.s
 .PHONY : src/HandlerConfLeaf.cpp.s
 
+src/Highlighter.o: src/Highlighter.cpp.o
+.PHONY : src/Highlighter.o
+
+# target to build an object file
+src/Highlighter.cpp.o:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/Highlighter.cpp.o
+.PHONY : src/Highlighter.cpp.o
+
+src/Highlighter.i: src/Highlighter.cpp.i
+.PHONY : src/Highlighter.i
+
+# target to preprocess a source file
+src/Highlighter.cpp.i:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/Highlighter.cpp.i
+.PHONY : src/Highlighter.cpp.i
+
+src/Highlighter.s: src/Highlighter.cpp.s
+.PHONY : src/Highlighter.s
+
+# target to generate assembly for a file
+src/Highlighter.cpp.s:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/Highlighter.cpp.s
+.PHONY : src/Highlighter.cpp.s
+
+src/LineSpace.o: src/LineSpace.cpp.o
+.PHONY : src/LineSpace.o
+
+# target to build an object file
+src/LineSpace.cpp.o:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/LineSpace.cpp.o
+.PHONY : src/LineSpace.cpp.o
+
+src/LineSpace.i: src/LineSpace.cpp.i
+.PHONY : src/LineSpace.i
+
+# target to preprocess a source file
+src/LineSpace.cpp.i:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/LineSpace.cpp.i
+.PHONY : src/LineSpace.cpp.i
+
+src/LineSpace.s: src/LineSpace.cpp.s
+.PHONY : src/LineSpace.s
+
+# target to generate assembly for a file
+src/LineSpace.cpp.s:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/LineSpace.cpp.s
+.PHONY : src/LineSpace.cpp.s
+
 src/Parsser.o: src/Parsser.cpp.o
 .PHONY : src/Parsser.o
 
@@ -271,6 +319,30 @@ src/PyScriptConfigurationWindow.cpp.s:
 	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/PyScriptConfigurationWindow.cpp.s
 .PHONY : src/PyScriptConfigurationWindow.cpp.s
 
+src/TextEditor.o: src/TextEditor.cpp.o
+.PHONY : src/TextEditor.o
+
+# target to build an object file
+src/TextEditor.cpp.o:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/TextEditor.cpp.o
+.PHONY : src/TextEditor.cpp.o
+
+src/TextEditor.i: src/TextEditor.cpp.i
+.PHONY : src/TextEditor.i
+
+# target to preprocess a source file
+src/TextEditor.cpp.i:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/TextEditor.cpp.i
+.PHONY : src/TextEditor.cpp.i
+
+src/TextEditor.s: src/TextEditor.cpp.s
+.PHONY : src/TextEditor.s
+
+# target to generate assembly for a file
+src/TextEditor.cpp.s:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/TextEditor.cpp.s
+.PHONY : src/TextEditor.cpp.s
+
 src/WidgetItem.o: src/WidgetItem.cpp.o
 .PHONY : src/WidgetItem.o
 
@@ -335,6 +407,12 @@ help:
 	@echo "... src/HandlerConfLeaf.o"
 	@echo "... src/HandlerConfLeaf.i"
 	@echo "... src/HandlerConfLeaf.s"
+	@echo "... src/Highlighter.o"
+	@echo "... src/Highlighter.i"
+	@echo "... src/Highlighter.s"
+	@echo "... src/LineSpace.o"
+	@echo "... src/LineSpace.i"
+	@echo "... src/LineSpace.s"
 	@echo "... src/Parsser.o"
 	@echo "... src/Parsser.i"
 	@echo "... src/Parsser.s"
@@ -347,6 +425,9 @@ help:
 	@echo "... src/PyScriptConfigurationWindow.o"
 	@echo "... src/PyScriptConfigurationWindow.i"
 	@echo "... src/PyScriptConfigurationWindow.s"
+	@echo "... src/TextEditor.o"
+	@echo "... src/TextEditor.i"
+	@echo "... src/TextEditor.s"
 	@echo "... src/WidgetItem.o"
 	@echo "... src/WidgetItem.i"
 	@echo "... src/WidgetItem.s"
