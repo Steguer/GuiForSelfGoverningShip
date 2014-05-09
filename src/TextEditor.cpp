@@ -8,11 +8,14 @@ TextEditor::TextEditor()
 	connect(this, SIGNAL(updateRequest(QRect,int)), this, SLOT(updateLineSpace(QRect,int)));
 
 	updateLineSpaceWidth(0);
+
+	m_highlighter = new Highlighter(this->document());
 }
 
 TextEditor::~TextEditor()
 {
-
+	delete m_lineSpace;
+	delete m_highlighter;
 }
 
 void TextEditor::updateLineSpaceWidth(int)

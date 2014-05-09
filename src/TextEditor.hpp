@@ -4,6 +4,7 @@
 #include <QtWidgets>
 #include <iostream>
 #include "LineSpace.hpp"
+#include "Highlighter.hpp"
 
 class TextEditor: public QPlainTextEdit
 {
@@ -27,6 +28,7 @@ protected:
 private:
 	QWidget *m_lineSpace;
 	int m_space;
+	Highlighter *m_highlighter;
 	
 };
 
