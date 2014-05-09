@@ -1,12 +1,12 @@
 
 {
 	"BackWindRotation" : 11,
-	"EnableHelmHandlerBackWindPyScript" : false,
+	"EnableHelmHandlerBackWindPyScript" : true,
 	"EnableHelmHandlerFrontWindPyScript" : false,
 	"EnableHelmHandlerSideWindPyScript" : false,
 	"EnableSailHandlerBackWindPyScript" : false,
 	"EnableSailHandlerFrontWindPyScript" : false,
-	"EnableSailHandlerSideWindPyScript" : false,
+	"EnableSailHandlerSideWindPyScript" : true,
 	"FrontWindRotation" : 11,
 	"HelmHandlerBackWindPyScript" : "rrrrrrrrr",
 	"HelmHandlerFrontWindPyScript" : "Testscript",

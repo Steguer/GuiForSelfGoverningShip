@@ -12,10 +12,10 @@ int main(int argc, char *argv[])
     PropertiesWindow pw;
     TextEditor txte;
     
-    // w.show();
-    // pw.show();
+    w.show();
+    //pw.show();
 
-    	txte.show();	
+    //	txte.show();	
  
     return app.exec();
 }

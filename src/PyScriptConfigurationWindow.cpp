@@ -14,7 +14,7 @@ PyScriptConfigurationWindow::PyScriptConfigurationWindow(): QWidget()
 	m_pathConfigLeaf = new PathConfigLeaf();
 
 	m_cancelButton = new QPushButton("Cancel");
-	m_okButton = new QPushButton("Ok");
+	m_okButton = new QPushButton("Save");
 
 	m_exploreConfigFileButton = new QPushButton("...");
 	m_editConfigFilePath = new QLineEdit();
@@ -59,14 +59,18 @@ void PyScriptConfigurationWindow::save()
 
 	Parsser::writeConfig("HelmHandlerSideWindPyScript", (m_sideWindLeaf->getScriptNameHelm()).toStdString());
 	Parsser::writeConfig("SailHandlerSideWindPyScript", (m_sideWindLeaf->getScriptNameSail()).toStdString());
+	Parsser::writeConfig("EnableHelmHandlerSideWindPyScript", (m_sideWindLeaf->getEnablePyScriptHelm()));
+	Parsser::writeConfig("EnableSailHandlerSideWindPyScript", (m_sideWindLeaf->getEnablePyScriptSail()));
 
 	Parsser::writeConfig("HelmHandlerFrontWindPyScript", (m_frontWindLeaf->getScriptNameHelm()).toStdString());
 	Parsser::writeConfig("SailHandlerFrontWindPyScript", (m_frontWindLeaf->getScriptNameSail()).toStdString());
+	Parsser::writeConfig("EnableHelmHandlerFrontWindPyScript", (m_frontWindLeaf->getEnablePyScriptHelm()));
+	Parsser::writeConfig("EnableSailHandlerFrontWindPyScript", (m_frontWindLeaf->getEnablePyScriptSail()));
 
 	Parsser::writeConfig("HelmHandlerBackWindPyScript", (m_backWindLeaf->getScriptNameHelm()).toStdString());
 	Parsser::writeConfig("SailHandlerBackWindPyScript", (m_backWindLeaf->getScriptNameSail()).toStdString());
-
-	qApp->quit();
+	Parsser::writeConfig("EnableHelmHandlerBackWindPyScript", (m_backWindLeaf->getEnablePyScriptHelm()));
+	Parsser::writeConfig("EnableSailHandlerBackWindPyScript", (m_backWindLeaf->getEnablePyScriptSail()));
 }
 
 void PyScriptConfigurationWindow::collectConfigFilePath()
@@ -80,10 +84,18 @@ void PyScriptConfigurationWindow::collectConfigFilePath()
 
 	m_sideWindLeaf->setScriptNameHelm(QString((Parsser::readConfigStr("HelmHandlerSideWindPyScript")).c_str()));
 	m_sideWindLeaf->setScriptNameSail(QString((Parsser::readConfigStr("SailHandlerSideWindPyScript")).c_str()));
+	m_sideWindLeaf->setEnablePyScriptHelm(Parsser::readConfigBool("EnableHelmHandlerSideWindPyScript"));
+	m_sideWindLeaf->setEnablePyScriptSail(Parsser::readConfigBool("EnableSailHandlerSideWindPyScript"));
 
 	m_frontWindLeaf->setScriptNameHelm(QString((Parsser::readConfigStr("HelmHandlerFrontWindPyScript")).c_str()));
 	m_frontWindLeaf->setScriptNameSail(QString((Parsser::readConfigStr("SailHandlerFrontWindPyScript")).c_str()));
+	m_frontWindLeaf->setEnablePyScriptHelm(Parsser::readConfigBool("EnableHelmHandlerFrontWindPyScript"));
+	m_frontWindLeaf->setEnablePyScriptSail(Parsser::readConfigBool("EnableSailHandlerFrontWindPyScript"));
 
 	m_backWindLeaf->setScriptNameHelm(QString((Parsser::readConfigStr("HelmHandlerBackWindPyScript")).c_str()));
 	m_backWindLeaf->setScriptNameSail(QString((Parsser::readConfigStr("SailHandlerBackWindPyScript")).c_str()));
+	m_backWindLeaf->setEnablePyScriptHelm(Parsser::readConfigBool("EnableHelmHandlerBackWindPyScript"));
+	m_backWindLeaf->setEnablePyScriptSail(Parsser::readConfigBool("EnableSailHandlerSideWindPyScript"));
+
+	cout<<"enable "<<m_backWindLeaf->getEnablePyScriptHelm()<<endl;
 }

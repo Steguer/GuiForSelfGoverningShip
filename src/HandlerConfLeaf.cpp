@@ -3,6 +3,7 @@
 HandlerConfLeaf::HandlerConfLeaf()
 {
 	m_gbox = new QGridLayout;
+	m_hbox = new QHBoxLayout;
 
 	m_helmLabel = new QLabel("Helm");
 	m_sailLabel = new QLabel("Sail");
@@ -13,6 +14,10 @@ HandlerConfLeaf::HandlerConfLeaf()
 	m_exploreHelmButton = new QPushButton("...");
 	m_exploreSailButton = new QPushButton("...");
 
+	m_enablePyScript = new QLabel("Enable ");
+	m_enablePyScriptHelm = new QCheckBox("helm ");
+	m_enablePyScriptSail = new QCheckBox("sail ");
+
 	m_gbox->addWidget(m_helmLabel, 0, 0);
 	m_gbox->addWidget(m_editPyScriptHelmName, 0, 1);
 	m_gbox->addWidget(m_exploreHelmButton, 0, 2);
@@ -20,6 +25,11 @@ HandlerConfLeaf::HandlerConfLeaf()
 	m_gbox->addWidget(m_sailLabel, 1, 0);
 	m_gbox->addWidget(m_editPyScriptSailName, 1, 1);
 	m_gbox->addWidget(m_exploreSailButton, 1, 2);
+
+	m_gbox->addWidget(m_enablePyScript, 2, 0);
+	m_hbox->addWidget(m_enablePyScriptSail);
+	m_hbox->addWidget(m_enablePyScriptHelm);
+	m_gbox->addLayout(m_hbox, 2, 1);
 
 	this->setLayout(m_gbox);
 
@@ -59,6 +69,10 @@ HandlerConfLeaf::~HandlerConfLeaf()
 	delete m_editPyScriptHelmName;
 	delete m_exploreHelmButton;
 	delete m_exploreSailButton;
+	delete m_enablePyScriptHelm;
+	delete m_enablePyScriptSail;
+	delete m_enablePyScript;
+	delete m_hbox;
 }
 
 void HandlerConfLeaf::collectScriptNameHelm()
@@ -91,4 +105,24 @@ void HandlerConfLeaf::setScriptNameHelm(QString const& name)
 void HandlerConfLeaf::setScriptNameSail(QString const& name)
 {
 	m_editPyScriptSailName->setText(name);
+}
+
+bool HandlerConfLeaf::getEnablePyScriptHelm()
+{
+	return m_enablePyScriptHelm->isChecked();
+}
+
+bool HandlerConfLeaf::getEnablePyScriptSail()
+{
+	return m_enablePyScriptSail->isChecked();
+}
+
+void HandlerConfLeaf::setEnablePyScriptHelm(bool const& ena)
+{
+	m_enablePyScriptHelm->setChecked(ena);
+}
+
+void HandlerConfLeaf::setEnablePyScriptSail(bool const& ena)
+{
+	m_enablePyScriptSail->setChecked(ena);
 }

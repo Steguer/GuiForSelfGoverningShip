@@ -17,8 +17,12 @@ public:
 
 	QString getScriptNameHelm() const;
 	QString getScriptNameSail() const;
+	bool getEnablePyScriptHelm();
+	bool getEnablePyScriptSail();
 	void setScriptNameHelm(QString const& name);
 	void setScriptNameSail(QString const& name);
+	void setEnablePyScriptHelm(bool const& ena);
+	void setEnablePyScriptSail(bool const& ena);
 
 public slots:
 	void collectScriptNameHelm();
@@ -34,6 +38,10 @@ private:
 	QPushButton *m_exploreSailButton;
 	QString m_scriptSailName;
 	QString m_scriptHelmName;
+	QCheckBox *m_enablePyScriptHelm;
+	QCheckBox *m_enablePyScriptSail;
+	QLabel *m_enablePyScript;
+	QHBoxLayout *m_hbox;
 };
 
 #endif
