@@ -13,6 +13,7 @@ Q_OBJECT
 public:
 	TextEditor();
 	TextEditor(std::string name);
+	TextEditor(QUrl path);
 	~TextEditor();
 
 	void lineSpacePaint(QPaintEvent *event);
@@ -30,7 +31,8 @@ private:
 	QWidget *m_lineSpace;
 	int m_space;
 	Highlighter *m_highlighter;
-	std::string m_name;
+	QUrl *m_file;
+	QString m_name;
 	
 };
 

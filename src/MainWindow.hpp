@@ -8,9 +8,14 @@
 
 class MainWindow: public QMainWindow
 {
+Q_OBJECT
+
 public:
 	MainWindow();
 	~MainWindow();
+
+public slots:
+	void openFile();
 
 private:
 	PyScriptConfigurationWindow *m_pyScripConfWid;

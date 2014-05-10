@@ -3,6 +3,7 @@
 #include "PyScriptConfigurationWindow.hpp"
 #include "PropertiesWindow.hpp"
 #include "TextEditor.hpp"
+#include "MainWindow.hpp"
  
 int main(int argc, char *argv[])
 {
@@ -11,11 +12,14 @@ int main(int argc, char *argv[])
     PyScriptConfigurationWindow w;
     PropertiesWindow pw;
     TextEditor txte;
+    MainWindow mw;
     
-    w.show();
+    //w.show();
     //pw.show();
 
-    //	txte.show();	
+    //	txte.show();
+
+    mw.show();	
  
     return app.exec();
 }

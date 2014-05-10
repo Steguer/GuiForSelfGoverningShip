@@ -10,19 +10,40 @@ TextEditor::TextEditor()
 	updateLineSpaceWidth(0);
 
 	m_name = "newFile";
+	m_file = new QUrl("");
+
 
 	m_highlighter = new Highlighter(this->document());
 }
 
 TextEditor::TextEditor(std::string name): TextEditor()
 {
-	m_name = name;
+	m_name = QString(name.c_str());
+	m_file = new QUrl(QString(name.c_str()));
+}
+
+TextEditor::TextEditor(QUrl path): TextEditor()
+{
+	std::cout<<"file name is "<< path.fileName().toStdString()<<std::endl;
+	m_file = new QUrl(path);
+	QFile file(path.path());
+	if(!file.open(QIODevice::ReadWrite | QIODevice::Text))
+	{
+		std::cout<<"Open File error"<<std::endl;		
+	}
+	else
+	{
+		QString fileContent(file.readAll());
+		insertPlainText(fileContent);
+	}
+	m_name = path.fileName();
 }
 
 TextEditor::~TextEditor()
 {
 	delete m_lineSpace;
 	delete m_highlighter;
+	delete m_file;
 }
 
 void TextEditor::updateLineSpaceWidth(int)
@@ -41,7 +62,6 @@ void TextEditor::updateLineSpaceWidth(int)
 
 void TextEditor::updateLineSpace(QRect const& rect, int const& dy)
 {
-	std::cout<<"coucou"<<std::endl;
 	if (dy)
 	{
          m_lineSpace->scroll(0, dy);

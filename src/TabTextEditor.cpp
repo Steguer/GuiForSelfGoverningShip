@@ -24,17 +24,21 @@ TabTextEditor::~TabTextEditor()
 	}
 }
 
-void TabTextEditor::makeTextEditor()
-{
-	QString tabName = "newTab";
-	m_txtEdit.push_back(new TextEditor(tabName.toStdString()));
-	m_tab->addTab(m_txtEdit.last(), tabName);
-}
-
 void TabTextEditor::makeTextEditor(QString tabName)
 {
 	m_txtEdit.append(new TextEditor(tabName.toStdString()));
 	m_tab->addTab(m_txtEdit.last(), tabName);
+}
+
+void TabTextEditor::makeTextEditor()
+{
+	makeTextEditor("newFile");
+}
+
+void TabTextEditor::makeTextEditor(QUrl path)
+{
+	m_txtEdit.append(new TextEditor(path));
+	m_tab->addTab(m_txtEdit.last(), path.fileName());
 }
 
 void TabTextEditor::closeTab(int index)

@@ -18,6 +18,7 @@ public slots:
 	void closeCurrentTab();
 	void makeTextEditor();
 	void makeTextEditor(QString);
+	void makeTextEditor(QUrl path);
 
 private:
 	QTabWidget *m_tab;

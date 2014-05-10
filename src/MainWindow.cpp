@@ -34,6 +34,7 @@ MainWindow::MainWindow(): QMainWindow()
 
 	QObject::connect(m_newFile, SIGNAL(triggered()), m_txtEdit, SLOT(makeTextEditor()));
 	QObject::connect(m_closeFile, SIGNAL(triggered()), m_txtEdit, SLOT(closeCurrentTab()));
+	QObject::connect(m_openFile, SIGNAL(triggered()), this, SLOT(openFile()));
 }
 
 MainWindow::~MainWindow()
@@ -48,4 +49,10 @@ MainWindow::~MainWindow()
 	delete m_newFile;
 	delete m_openFile;
 	delete m_closeFile;
+}
+
+void MainWindow::openFile()
+{
+	QUrl path(QFileDialog::getOpenFileName(this));
+	m_txtEdit->makeTextEditor(path);
 }

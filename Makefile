@@ -223,6 +223,30 @@ src/LineSpace.cpp.s:
 	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/LineSpace.cpp.s
 .PHONY : src/LineSpace.cpp.s
 
+src/MainWindow.o: src/MainWindow.cpp.o
+.PHONY : src/MainWindow.o
+
+# target to build an object file
+src/MainWindow.cpp.o:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/MainWindow.cpp.o
+.PHONY : src/MainWindow.cpp.o
+
+src/MainWindow.i: src/MainWindow.cpp.i
+.PHONY : src/MainWindow.i
+
+# target to preprocess a source file
+src/MainWindow.cpp.i:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/MainWindow.cpp.i
+.PHONY : src/MainWindow.cpp.i
+
+src/MainWindow.s: src/MainWindow.cpp.s
+.PHONY : src/MainWindow.s
+
+# target to generate assembly for a file
+src/MainWindow.cpp.s:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/MainWindow.cpp.s
+.PHONY : src/MainWindow.cpp.s
+
 src/Parsser.o: src/Parsser.cpp.o
 .PHONY : src/Parsser.o
 
@@ -319,6 +343,30 @@ src/PyScriptConfigurationWindow.cpp.s:
 	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/PyScriptConfigurationWindow.cpp.s
 .PHONY : src/PyScriptConfigurationWindow.cpp.s
 
+src/TabTextEditor.o: src/TabTextEditor.cpp.o
+.PHONY : src/TabTextEditor.o
+
+# target to build an object file
+src/TabTextEditor.cpp.o:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/TabTextEditor.cpp.o
+.PHONY : src/TabTextEditor.cpp.o
+
+src/TabTextEditor.i: src/TabTextEditor.cpp.i
+.PHONY : src/TabTextEditor.i
+
+# target to preprocess a source file
+src/TabTextEditor.cpp.i:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/TabTextEditor.cpp.i
+.PHONY : src/TabTextEditor.cpp.i
+
+src/TabTextEditor.s: src/TabTextEditor.cpp.s
+.PHONY : src/TabTextEditor.s
+
+# target to generate assembly for a file
+src/TabTextEditor.cpp.s:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/TabTextEditor.cpp.s
+.PHONY : src/TabTextEditor.cpp.s
+
 src/TextEditor.o: src/TextEditor.cpp.o
 .PHONY : src/TextEditor.o
 
@@ -413,6 +461,9 @@ help:
 	@echo "... src/LineSpace.o"
 	@echo "... src/LineSpace.i"
 	@echo "... src/LineSpace.s"
+	@echo "... src/MainWindow.o"
+	@echo "... src/MainWindow.i"
+	@echo "... src/MainWindow.s"
 	@echo "... src/Parsser.o"
 	@echo "... src/Parsser.i"
 	@echo "... src/Parsser.s"
@@ -425,6 +476,9 @@ help:
 	@echo "... src/PyScriptConfigurationWindow.o"
 	@echo "... src/PyScriptConfigurationWindow.i"
 	@echo "... src/PyScriptConfigurationWindow.s"
+	@echo "... src/TabTextEditor.o"
+	@echo "... src/TabTextEditor.i"
+	@echo "... src/TabTextEditor.s"
 	@echo "... src/TextEditor.o"
 	@echo "... src/TextEditor.i"
 	@echo "... src/TextEditor.s"
