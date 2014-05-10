@@ -9,7 +9,14 @@ TextEditor::TextEditor()
 
 	updateLineSpaceWidth(0);
 
+	m_name = "newFile";
+
 	m_highlighter = new Highlighter(this->document());
+}
+
+TextEditor::TextEditor(std::string name): TextEditor()
+{
+	m_name = name;
 }
 
 TextEditor::~TextEditor()
