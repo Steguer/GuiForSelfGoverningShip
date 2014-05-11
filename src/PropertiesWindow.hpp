@@ -12,7 +12,7 @@ struct PropLine
 	QLabel *label;
 };
 
-class PropertiesWindow: public QWidget
+class PropertiesWindow: public QScrollArea
 {
 Q_OBJECT
 
@@ -25,8 +25,7 @@ public slots:
 
 private:
 	QGridLayout *m_gbox;
-	QPushButton *m_cancelButton;
-	QPushButton *m_okButton;
+	QWidget *m_container;
 	std::vector<PropLine> m_widgetItemVect;
 	
 };

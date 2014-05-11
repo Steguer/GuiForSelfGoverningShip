@@ -1,7 +1,7 @@
-rsc/
-bin/
-obj/
-CMakeFiles/
+rsc/*
+bin/*
+obj/*
+CMakeFiles/*
 CMakeCache.txt
 cmake_install.cmake
 octave-workspace

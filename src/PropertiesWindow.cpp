@@ -1,10 +1,8 @@
 #include "PropertiesWindow.hpp"
 
-PropertiesWindow::PropertiesWindow(): QWidget()
+PropertiesWindow::PropertiesWindow(): QScrollArea()
 {
 	m_gbox = new QGridLayout();
-	m_cancelButton = new QPushButton("Cancel");
-	m_okButton = new QPushButton("Ok");
 
 	auto root = Parsser::readConfigFile();
 
@@ -29,18 +27,18 @@ PropertiesWindow::PropertiesWindow(): QWidget()
 		++i;
 	}
 
-	m_gbox->addWidget(m_cancelButton, i, 0);
-	m_gbox->addWidget(m_okButton, i, 1);
+	setAutoFillBackground(true);
+	setBackgroundRole(QPalette::Base);
 
-	QObject::connect(m_cancelButton, SIGNAL(clicked()), qApp, SLOT(quit()));
-	QObject::connect(m_okButton, SIGNAL(clicked()), this, SLOT(save()));
-
-	this->setLayout(m_gbox);
+	m_container = new QWidget();
+	m_container->setLayout(m_gbox);
+	this->setWidget(m_container);
 }
 
 PropertiesWindow::~PropertiesWindow()
 {
-
+	delete m_gbox;
+	delete m_container;
 }
 
 void PropertiesWindow::save()
