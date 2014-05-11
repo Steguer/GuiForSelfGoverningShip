@@ -4,7 +4,6 @@ TabTextEditor::TabTextEditor(): QWidget()
 {
 	m_tab = new QTabWidget();
 	m_tab->setTabsClosable(true);
-	makeTextEditor("newTab");
 
 	m_hbox = new QHBoxLayout();
 	m_hbox->addWidget(m_tab);
@@ -59,5 +58,12 @@ void TabTextEditor::saveCurrentFile()
 {
 	int index = m_tab->currentIndex();
 	m_txtEdit.at(index)->saveFile();
+	m_tab->setTabText(index, m_txtEdit.at(index)->getFileName());
+}
+
+void TabTextEditor::saveCurrentFileAs()
+{
+	int index = m_tab->currentIndex();
+	m_txtEdit.at(index)->saveFile(new QUrl(QFileDialog::getSaveFileName(this)));
 	m_tab->setTabText(index, m_txtEdit.at(index)->getFileName());
 }

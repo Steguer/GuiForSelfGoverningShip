@@ -28,6 +28,7 @@ private:
 	QAction *m_newFile;
 	QAction *m_openFile;
 	QAction *m_closeFile;
+	QAction *m_saveAsFile;
 };
 
 #endif

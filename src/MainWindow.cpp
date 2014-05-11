@@ -13,10 +13,12 @@ MainWindow::MainWindow(): QMainWindow()
 	m_openFile = new QAction("&Open File", this);
 	m_newFile = new QAction("&New File", this);
 	m_closeFile = new QAction("&Close File", this);
+	m_saveAsFile = new QAction("Save &As", this);
 	m_file->addAction(m_newFile);
 	m_file->addAction(m_openFile);
 	m_file->addAction(m_saveFile);
 	m_file->addAction(m_closeFile);
+	m_file->addAction(m_saveAsFile);
 
 	m_pyScriptConfDock->setFeatures(QDockWidget::DockWidgetFloatable | QDockWidget::DockWidgetMovable);
 	m_propertiesDock->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable);
@@ -38,6 +40,7 @@ MainWindow::MainWindow(): QMainWindow()
 	QObject::connect(m_closeFile, SIGNAL(triggered()), m_txtEdit, SLOT(closeCurrentTab()));
 	QObject::connect(m_openFile, SIGNAL(triggered()), this, SLOT(openFile()));
 	QObject::connect(m_saveFile, SIGNAL(triggered()), m_txtEdit, SLOT(saveCurrentFile()));
+	QObject::connect(m_saveAsFile, SIGNAL(triggered()), m_txtEdit, SLOT(saveCurrentFileAs()));
 }
 
 MainWindow::~MainWindow()

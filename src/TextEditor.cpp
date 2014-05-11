@@ -106,39 +106,32 @@ void TextEditor::lineSpacePaint(QPaintEvent *event)
 	}
 }
 
-void TextEditor::saveFile()
+void TextEditor::saveFile(QUrl* const& path)
 {
-	if(m_filePath != nullptr)
+	if(path != nullptr)
 	{
-		QSaveFile file(m_filePath->path());
-		if(!file.open(QIODevice::WriteOnly | QIODevice::Text))
+		if(m_filePath != nullptr)
 		{
-			std::cout<<"Error during save"<<std::endl;
+			delete m_filePath;
 		}
-		else
-		{
-			file.resize(0);
-			QTextStream stream(&file);
-			std::cout<<toPlainText().toStdString()<<std::endl;
-		    stream << toPlainText().toUtf8() << endl;
-		    file.commit();
-		}
+		m_filePath = path;
+	}
+	else if(m_filePath == nullptr)
+	{
+		m_filePath = new QUrl(QFileDialog::getSaveFileName(this));
+	}
+
+	QSaveFile file(m_filePath->path());
+	if(!file.open(QIODevice::WriteOnly | QIODevice::Text))
+	{
+		std::cout<<"Error during save"<<std::endl;
 	}
 	else
 	{
-		m_filePath = new QUrl(QFileDialog::getSaveFileName(this));
-		QSaveFile file(m_filePath->path());
-		if(!file.open(QIODevice::WriteOnly | QIODevice::Text))
-		{
-			std::cout<<"Error during save"<<std::endl;
-		}
-		else
-		{
-			QTextStream stream(&file);
-			std::cout<<toPlainText().toStdString()<<std::endl;
-		    stream << toPlainText().toUtf8() << endl;
-		    file.commit();
-		}
+		QTextStream stream(&file);
+		std::cout<<toPlainText().toStdString()<<std::endl;
+	    stream << toPlainText().toUtf8() << endl;
+	    file.commit();
 	}
 }
 

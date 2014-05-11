@@ -20,7 +20,7 @@ public:
 
 	int getSpace();
 	QString getFileName();
-	void saveFile();
+	void saveFile(QUrl* const& path = nullptr);
 
 public slots:
 	void updateLineSpaceWidth(int);
