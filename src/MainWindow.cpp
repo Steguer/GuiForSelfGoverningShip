@@ -9,13 +9,13 @@ MainWindow::MainWindow(): QMainWindow()
 	m_propertiesDock = new QDockWidget();
 
 	m_file = menuBar()->addMenu("&File");
-	m_save = new QAction("&Save", this);
+	m_saveFile = new QAction("&Save", this);
 	m_openFile = new QAction("&Open File", this);
 	m_newFile = new QAction("&New File", this);
 	m_closeFile = new QAction("&Close File", this);
 	m_file->addAction(m_newFile);
 	m_file->addAction(m_openFile);
-	m_file->addAction(m_save);
+	m_file->addAction(m_saveFile);
 	m_file->addAction(m_closeFile);
 
 	m_pyScriptConfDock->setFeatures(QDockWidget::DockWidgetFloatable | QDockWidget::DockWidgetMovable);
@@ -31,10 +31,13 @@ MainWindow::MainWindow(): QMainWindow()
 
 	m_newFile->setShortcut(QKeySequence("Ctrl+n"));
 	m_closeFile->setShortcut(QKeySequence("Ctrl+w"));
+	m_openFile->setShortcut(QKeySequence("Ctrl+o"));
+	m_saveFile->setShortcut(QKeySequence("Ctrl+s"));
 
 	QObject::connect(m_newFile, SIGNAL(triggered()), m_txtEdit, SLOT(makeTextEditor()));
 	QObject::connect(m_closeFile, SIGNAL(triggered()), m_txtEdit, SLOT(closeCurrentTab()));
 	QObject::connect(m_openFile, SIGNAL(triggered()), this, SLOT(openFile()));
+	QObject::connect(m_saveFile, SIGNAL(triggered()), m_txtEdit, SLOT(saveCurrentFile()));
 }
 
 MainWindow::~MainWindow()
@@ -45,7 +48,7 @@ MainWindow::~MainWindow()
 	delete m_pyScriptConfDock;
 	delete m_propertiesDock;
 	delete m_file;
-	delete m_save;
+	delete m_saveFile;
 	delete m_newFile;
 	delete m_openFile;
 	delete m_closeFile;

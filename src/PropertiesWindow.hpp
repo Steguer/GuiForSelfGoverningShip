@@ -12,7 +12,7 @@ struct PropLine
 	QLabel *label;
 };
 
-class PropertiesWindow: public QFrame
+class PropertiesWindow: public QWidget
 {
 Q_OBJECT
 

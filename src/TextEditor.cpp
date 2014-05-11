@@ -10,8 +10,7 @@ TextEditor::TextEditor()
 	updateLineSpaceWidth(0);
 
 	m_name = "newFile";
-	m_file = new QUrl("");
-
+	m_filePath = nullptr;
 
 	m_highlighter = new Highlighter(this->document());
 }
@@ -19,31 +18,31 @@ TextEditor::TextEditor()
 TextEditor::TextEditor(std::string name): TextEditor()
 {
 	m_name = QString(name.c_str());
-	m_file = new QUrl(QString(name.c_str()));
 }
 
 TextEditor::TextEditor(QUrl path): TextEditor()
 {
-	std::cout<<"file name is "<< path.fileName().toStdString()<<std::endl;
-	m_file = new QUrl(path);
-	QFile file(path.path());
-	if(!file.open(QIODevice::ReadWrite | QIODevice::Text))
+	QFile fileIn(path.path());
+	if(!fileIn.open(QIODevice::ReadOnly | QIODevice::Text))
 	{
-		std::cout<<"Open File error"<<std::endl;		
+		std::cout<<"Open File error"<<std::endl;
 	}
 	else
 	{
-		QString fileContent(file.readAll());
-		insertPlainText(fileContent);
+		insertPlainText(fileIn.readAll());
+		fileIn.close();
 	}
+	
+	m_filePath = new QUrl(path);
 	m_name = path.fileName();
 }
 
 TextEditor::~TextEditor()
 {
+	std::cout<<"delete TextEditor"<<std::endl;
 	delete m_lineSpace;
 	delete m_highlighter;
-	delete m_file;
+	delete m_filePath;
 }
 
 void TextEditor::updateLineSpaceWidth(int)
@@ -107,7 +106,48 @@ void TextEditor::lineSpacePaint(QPaintEvent *event)
 	}
 }
 
+void TextEditor::saveFile()
+{
+	if(m_filePath != nullptr)
+	{
+		QSaveFile file(m_filePath->path());
+		if(!file.open(QIODevice::WriteOnly | QIODevice::Text))
+		{
+			std::cout<<"Error during save"<<std::endl;
+		}
+		else
+		{
+			file.resize(0);
+			QTextStream stream(&file);
+			std::cout<<toPlainText().toStdString()<<std::endl;
+		    stream << toPlainText().toUtf8() << endl;
+		    file.commit();
+		}
+	}
+	else
+	{
+		m_filePath = new QUrl(QFileDialog::getSaveFileName(this));
+		QSaveFile file(m_filePath->path());
+		if(!file.open(QIODevice::WriteOnly | QIODevice::Text))
+		{
+			std::cout<<"Error during save"<<std::endl;
+		}
+		else
+		{
+			QTextStream stream(&file);
+			std::cout<<toPlainText().toStdString()<<std::endl;
+		    stream << toPlainText().toUtf8() << endl;
+		    file.commit();
+		}
+	}
+}
+
 int TextEditor::getSpace()
 {
 	return m_space;
+}
+
+QString TextEditor::getFileName()
+{
+	return m_filePath->fileName();
 }

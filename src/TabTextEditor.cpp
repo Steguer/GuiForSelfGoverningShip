@@ -53,3 +53,10 @@ void TabTextEditor::closeCurrentTab()
 	m_tab->removeTab(index);
 	m_txtEdit.removeAt(index);
 }
+
+void TabTextEditor::saveCurrentFile()
+{
+	int index = m_tab->currentIndex();
+	m_txtEdit.at(index)->saveFile();
+	m_tab->setTabText(index, m_txtEdit.at(index)->getFileName());
+}

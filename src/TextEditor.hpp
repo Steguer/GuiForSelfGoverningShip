@@ -19,6 +19,8 @@ public:
 	void lineSpacePaint(QPaintEvent *event);
 
 	int getSpace();
+	QString getFileName();
+	void saveFile();
 
 public slots:
 	void updateLineSpaceWidth(int);
@@ -31,7 +33,7 @@ private:
 	QWidget *m_lineSpace;
 	int m_space;
 	Highlighter *m_highlighter;
-	QUrl *m_file;
+	QUrl *m_filePath;
 	QString m_name;
 	
 };

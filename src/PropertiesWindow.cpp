@@ -1,6 +1,6 @@
 #include "PropertiesWindow.hpp"
 
-PropertiesWindow::PropertiesWindow()
+PropertiesWindow::PropertiesWindow(): QWidget()
 {
 	m_gbox = new QGridLayout();
 	m_cancelButton = new QPushButton("Cancel");

@@ -24,7 +24,7 @@ private:
 	QDockWidget *m_pyScriptConfDock;
 	QDockWidget *m_propertiesDock;
 	QMenu *m_file;
-	QAction *m_save;
+	QAction *m_saveFile;
 	QAction *m_newFile;
 	QAction *m_openFile;
 	QAction *m_closeFile;
