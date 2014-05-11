@@ -1,11 +1,9 @@
-Analyse\ fonctionnelle/
-Rsc/
-
-./bin/
-./obj/
-./CMakeFiles/
-./CMakeCache.txt
-./cmake_install.cmake
+rsc/
+bin/
+obj/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
 octave-workspace
 *.o
 *.out
@@ -14,3 +12,5 @@ octave-workspace
 *.sublime-workspace
 *.log
 *.aux
+moc_*
+gui_automoc.cpp
