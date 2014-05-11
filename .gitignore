@@ -1,11 +1,11 @@
 Analyse\ fonctionnelle/
 Rsc/
-software/bin/
-software/test/
-software/obj/
-software/CMakeFiles/
-software/CMakeCache.txt
-software/cmake_install.cmake
+
+./bin/
+./obj/
+./CMakeFiles/
+./CMakeCache.txt
+./cmake_install.cmake
 octave-workspace
 *.o
 *.out
