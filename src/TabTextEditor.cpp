@@ -44,6 +44,7 @@ void TabTextEditor::makeTextEditor(QUrl path)
 void TabTextEditor::closeTab(int index)
 {
 	m_tab->removeTab(index);
+	delete m_txtEdit.at(index);
 	m_txtEdit.removeAt(index);
 }
 
