@@ -1,6 +1,6 @@
 #include "Parsser.hpp"
 
-string Parsser::m_filePath = "../../rsc/config.json";
+string Parsser::m_filePath = "";
 
 Parsser::Parsser()
 {
@@ -19,5 +19,8 @@ string Parsser::getFilePath()
 
 void Parsser::setFilePath(string const& newFilePath)
 {
-	m_filePath = newFilePath;
+	if(m_filePath != newFilePath)
+	{
+		m_filePath = newFilePath;
+	}
 }

@@ -19,14 +19,16 @@ Q_OBJECT
 public:
 	PropertiesWindow();
 	~PropertiesWindow();
+	void clearData();
 
 public slots:
 	void save();
+	void loadData();
 
 private:
 	QGridLayout *m_gbox;
 	QWidget *m_container;
-	std::vector<PropLine> m_widgetItemVect;
+	QVector<PropLine> m_widgetItem;
 	
 };
 

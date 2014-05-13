@@ -4,7 +4,6 @@ PyScriptConfigurationWindow::PyScriptConfigurationWindow(): QWidget()
 {
 	m_vbox = new QVBoxLayout();
 	m_hbox = new QHBoxLayout();
-	m_hbox2 = new QHBoxLayout();
 	m_tab = new QTabWidget();
 	m_tab->setGeometry(30, 20, 480, 320);
 
@@ -12,9 +11,6 @@ PyScriptConfigurationWindow::PyScriptConfigurationWindow(): QWidget()
 	m_sideWindLeaf = new HandlerConfLeaf(SIDE_WIND);
 	m_backWindLeaf = new HandlerConfLeaf(BACK_WIND);
 	m_pathConfigLeaf = new PathConfigLeaf();
-
-	m_cancelButton = new QPushButton("Cancel");
-	m_okButton = new QPushButton("Save");
 
 	m_exploreConfigFileButton = new QPushButton("...");
 	m_editConfigFilePath = new QLineEdit();
@@ -25,22 +21,16 @@ PyScriptConfigurationWindow::PyScriptConfigurationWindow(): QWidget()
 	m_tab->addTab(m_sideWindLeaf, "Side Wind");
 	m_tab->addTab(m_backWindLeaf, "Back Wind");
 
-	m_hbox->addWidget(m_cancelButton);
-	m_hbox->addWidget(m_okButton);
-
-	m_hbox2->addWidget(m_configFilePathLabel);
-	m_hbox2->addWidget(m_editConfigFilePath);
-	m_hbox2->addWidget(m_exploreConfigFileButton);
+	m_hbox->addWidget(m_configFilePathLabel);
+	m_hbox->addWidget(m_editConfigFilePath);
+	m_hbox->addWidget(m_exploreConfigFileButton);
 
 	m_vbox->addWidget(m_tab);
-	m_vbox->addLayout(m_hbox2);
 	m_vbox->addLayout(m_hbox);
 
 	this->setLayout(m_vbox);
 
-	QObject::connect(m_cancelButton, SIGNAL(clicked()), qApp, SLOT(quit()));
-	QObject::connect(m_okButton, SIGNAL(clicked()), this, SLOT(save()));
-	QObject::connect(m_exploreConfigFileButton, SIGNAL(clicked()), this, SLOT(collectConfigFilePath()));
+	QObject::connect(m_exploreConfigFileButton, SIGNAL(clicked()), this, SLOT(loadData()));
 }
 
 PyScriptConfigurationWindow::~PyScriptConfigurationWindow()
@@ -51,6 +41,7 @@ PyScriptConfigurationWindow::~PyScriptConfigurationWindow()
 	delete m_exploreConfigFileButton;
 	delete m_editConfigFilePath;
 	delete m_tab;
+	delete m_hbox;
 }
 
 void PyScriptConfigurationWindow::save()
@@ -69,16 +60,12 @@ void PyScriptConfigurationWindow::save()
 
 	Parsser::writeConfig("HelmHandlerBackWindPyScript", (m_backWindLeaf->getScriptNameHelm()).toStdString());
 	Parsser::writeConfig("SailHandlerBackWindPyScript", (m_backWindLeaf->getScriptNameSail()).toStdString());
-	Parsser::writeConfig("EnableHelmHandlerBackWindPyScript", (m_backWindLeaf->getEnablePyScriptHelm()));
+
 	Parsser::writeConfig("EnableSailHandlerBackWindPyScript", (m_backWindLeaf->getEnablePyScriptSail()));
 }
 
-void PyScriptConfigurationWindow::collectConfigFilePath()
+void PyScriptConfigurationWindow::loadData()
 {
-	m_configFilePath = QFileDialog::getOpenFileName(this);
-
-	m_editConfigFilePath->setText(m_configFilePath);
-	Parsser::setFilePath(m_configFilePath.toStdString());
 
 	m_pathConfigLeaf->setSciptPath(QString((Parsser::readConfigStr("ScriptPath")).c_str()));
 
@@ -97,5 +84,9 @@ void PyScriptConfigurationWindow::collectConfigFilePath()
 	m_backWindLeaf->setEnablePyScriptHelm(Parsser::readConfigBool("EnableHelmHandlerBackWindPyScript"));
 	m_backWindLeaf->setEnablePyScriptSail(Parsser::readConfigBool("EnableSailHandlerSideWindPyScript"));
 
-	cout<<"enable "<<m_backWindLeaf->getEnablePyScriptHelm()<<endl;
+}
+
+void PyScriptConfigurationWindow::setEditConfigFilePath(QString const& str)
+{
+	m_editConfigFilePath->setText(str);
 }
