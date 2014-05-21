@@ -2,6 +2,7 @@
 
 MainWindow::MainWindow(): QMainWindow()
 {
+	m_sendToWindow = new SendToWindow();
 	m_pyScripConfWid = new PyScriptConfigurationWindow();
 	m_txtEdit = new TabTextEditor();
 	m_propertiesWid = new PropertiesWindow();
@@ -9,16 +10,24 @@ MainWindow::MainWindow(): QMainWindow()
 	m_propertiesDock = new QDockWidget();
 
 	m_file = menuBar()->addMenu("&File");
+	m_quit = new QAction("&Quit", this);
+	m_about = new QAction("&About", this);
+	m_sendTo = new QAction("&Send To...", this);
+	m_file->addAction(m_sendTo);
+	m_file->addAction(m_about);
+	m_file->addAction(m_quit);
+
+	m_sciptFile = menuBar()->addMenu("&Script File");
 	m_saveFile = new QAction("&Save", this);
 	m_openFile = new QAction("&Open File", this);
 	m_newFile = new QAction("&New File", this);
 	m_closeFile = new QAction("&Close File", this);
 	m_saveAsFile = new QAction("Save &As", this);
-	m_file->addAction(m_newFile);
-	m_file->addAction(m_openFile);
-	m_file->addAction(m_saveFile);
-	m_file->addAction(m_closeFile);
-	m_file->addAction(m_saveAsFile);
+	m_sciptFile->addAction(m_newFile);
+	m_sciptFile->addAction(m_openFile);
+	m_sciptFile->addAction(m_saveFile);
+	m_sciptFile->addAction(m_closeFile);
+	m_sciptFile->addAction(m_saveAsFile);
 
 	m_confFile = menuBar()->addMenu("&Config File");
 	m_saveConfigFile = new QAction("&Save", this);
@@ -47,6 +56,7 @@ MainWindow::MainWindow(): QMainWindow()
 	m_closeFile->setShortcut(QKeySequence("Ctrl+w"));
 	m_openFile->setShortcut(QKeySequence("Ctrl+o"));
 	m_saveFile->setShortcut(QKeySequence("Ctrl+s"));
+	m_quit->setShortcut(QKeySequence("Ctrl+q"));
 
 	QObject::connect(m_newFile, SIGNAL(triggered()), m_txtEdit, SLOT(makeTextEditor()));
 	QObject::connect(m_closeFile, SIGNAL(triggered()), m_txtEdit, SLOT(closeCurrentTab()));
@@ -57,6 +67,9 @@ MainWindow::MainWindow(): QMainWindow()
 	QObject::connect(m_saveAsConfigFile, SIGNAL(triggered()), this, SLOT(saveAsConfigFile()));
 	QObject::connect(m_saveConfigFile, SIGNAL(triggered()), this, SLOT(saveConfigFile()));
 	QObject::connect(m_openConfigFile, SIGNAL(triggered()), this, SLOT(openConfigFile()));
+
+	QObject::connect(m_quit, SIGNAL(triggered()), qApp, SLOT(quit()));
+	QObject::connect(m_sendTo, SIGNAL(triggered()), this, SLOT(runSendWind()));
 }
 
 MainWindow::~MainWindow()
@@ -66,7 +79,7 @@ MainWindow::~MainWindow()
 	delete m_propertiesWid;
 	delete m_pyScriptConfDock;
 	delete m_propertiesDock;
-	delete m_file;
+	delete m_sciptFile;
 	delete m_confFile;
 	delete m_saveFile;
 	delete m_newFile;
@@ -77,6 +90,11 @@ MainWindow::~MainWindow()
 	delete m_openConfigFile;
 	delete m_closeConfigFile;
 	delete m_saveAsConfigFile;
+	delete m_quit;
+	delete m_about;
+	delete m_sendTo;
+	delete m_file;
+	delete m_sendToWindow;
 }
 
 void MainWindow::openFile()
@@ -113,4 +131,9 @@ void MainWindow::openConfigFile()
 		m_pyScripConfWid->loadData();
 		m_propertiesWid->loadData();
 	}
+}
+
+void MainWindow::runSendWind()
+{
+	m_sendToWindow->showWind(QUrl(m_pyScripConfWid->getEditConfifFilePath()));
 }

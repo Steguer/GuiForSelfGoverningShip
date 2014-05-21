@@ -5,6 +5,7 @@
 #include "PyScriptConfigurationWindow.hpp"
 #include "TabTextEditor.hpp"
 #include "PropertiesWindow.hpp"
+#include "SendToWindow.hpp"
 
 class MainWindow: public QMainWindow
 {
@@ -19,15 +20,18 @@ public slots:
 	void saveConfigFile();
 	void saveAsConfigFile();
 	void openConfigFile();
+	void runSendWind();
 
 private:
 	PyScriptConfigurationWindow *m_pyScripConfWid;
 	TabTextEditor *m_txtEdit;
 	PropertiesWindow *m_propertiesWid;
+	SendToWindow *m_sendToWindow;
 	QDockWidget *m_pyScriptConfDock;
 	QDockWidget *m_propertiesDock;
+	QMenu *m_sciptFile;
+	QMenu *m_confFile;
 	QMenu *m_file;
-	QMenu *m_confFile; 
 	QAction *m_saveFile;
 	QAction *m_newFile;
 	QAction *m_openFile;
@@ -39,6 +43,10 @@ private:
 	QAction *m_openConfigFile;
 	QAction *m_closeConfigFile;
 	QAction *m_saveAsConfigFile;
+
+	QAction *m_quit;
+	QAction *m_about;
+	QAction *m_sendTo;
 };
 
 #endif
