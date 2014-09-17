@@ -1,1 +1,0 @@
-GUI wich change a config file made in json. This HMI will be useful for my other project SelfGoverningShip.
