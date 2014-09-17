@@ -62,6 +62,7 @@ void SendToWindow::showWind(QUrl fileToSend)
 void SendToWindow::sendFile()
 {
 	QString str = "scp ";
+	str += "-B ";
 	str += m_fileTosend.path();
 	str += " ";
 	str += m_userEdit->text();

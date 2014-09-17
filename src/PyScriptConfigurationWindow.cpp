@@ -12,9 +12,9 @@ PyScriptConfigurationWindow::PyScriptConfigurationWindow(): QWidget()
 	m_backWindLeaf = new HandlerConfLeaf(BACK_WIND);
 	m_pathConfigLeaf = new PathConfigLeaf();
 
-	m_exploreConfigFileButton = new QPushButton("...");
 	m_editConfigFilePath = new QLineEdit();
 	m_configFilePathLabel = new QLabel("Config file path");
+	m_editConfigFilePath->setReadOnly(true);
 
 	m_tab->addTab(m_pathConfigLeaf, "General");
 	m_tab->addTab(m_frontWindLeaf, "Front Wind");
@@ -23,14 +23,12 @@ PyScriptConfigurationWindow::PyScriptConfigurationWindow(): QWidget()
 
 	m_hbox->addWidget(m_configFilePathLabel);
 	m_hbox->addWidget(m_editConfigFilePath);
-	m_hbox->addWidget(m_exploreConfigFileButton);
 
 	m_vbox->addWidget(m_tab);
 	m_vbox->addLayout(m_hbox);
 
 	this->setLayout(m_vbox);
 
-	QObject::connect(m_exploreConfigFileButton, SIGNAL(clicked()), this, SLOT(loadData()));
 }
 
 PyScriptConfigurationWindow::~PyScriptConfigurationWindow()
@@ -38,7 +36,6 @@ PyScriptConfigurationWindow::~PyScriptConfigurationWindow()
 	delete m_frontWindLeaf;
 	delete m_sideWindLeaf;
 	delete m_backWindLeaf;
-	delete m_exploreConfigFileButton;
 	delete m_editConfigFilePath;
 	delete m_tab;
 	delete m_hbox;
@@ -89,4 +86,9 @@ void PyScriptConfigurationWindow::loadData()
 void PyScriptConfigurationWindow::setEditConfigFilePath(QString const& str)
 {
 	m_editConfigFilePath->setText(str);
+}
+
+QString PyScriptConfigurationWindow::getEditConfifFilePath()
+{
+	return m_editConfigFilePath->text();
 }

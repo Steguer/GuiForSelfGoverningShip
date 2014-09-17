@@ -343,6 +343,30 @@ src/PyScriptConfigurationWindow.cpp.s:
 	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/PyScriptConfigurationWindow.cpp.s
 .PHONY : src/PyScriptConfigurationWindow.cpp.s
 
+src/SendToWindow.o: src/SendToWindow.cpp.o
+.PHONY : src/SendToWindow.o
+
+# target to build an object file
+src/SendToWindow.cpp.o:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/SendToWindow.cpp.o
+.PHONY : src/SendToWindow.cpp.o
+
+src/SendToWindow.i: src/SendToWindow.cpp.i
+.PHONY : src/SendToWindow.i
+
+# target to preprocess a source file
+src/SendToWindow.cpp.i:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/SendToWindow.cpp.i
+.PHONY : src/SendToWindow.cpp.i
+
+src/SendToWindow.s: src/SendToWindow.cpp.s
+.PHONY : src/SendToWindow.s
+
+# target to generate assembly for a file
+src/SendToWindow.cpp.s:
+	$(MAKE) -f CMakeFiles/gui.dir/build.make CMakeFiles/gui.dir/src/SendToWindow.cpp.s
+.PHONY : src/SendToWindow.cpp.s
+
 src/TabTextEditor.o: src/TabTextEditor.cpp.o
 .PHONY : src/TabTextEditor.o
 
@@ -476,6 +500,9 @@ help:
 	@echo "... src/PyScriptConfigurationWindow.o"
 	@echo "... src/PyScriptConfigurationWindow.i"
 	@echo "... src/PyScriptConfigurationWindow.s"
+	@echo "... src/SendToWindow.o"
+	@echo "... src/SendToWindow.i"
+	@echo "... src/SendToWindow.s"
 	@echo "... src/TabTextEditor.o"
 	@echo "... src/TabTextEditor.i"
 	@echo "... src/TabTextEditor.s"

@@ -2,7 +2,9 @@
 
 MainWindow::MainWindow(): QMainWindow()
 {
-	m_sendToWindow = new SendToWindow();
+	this->resize(1280, 800);
+
+	m_sendConfigToWindow = new SendToWindow();
 	m_pyScripConfWid = new PyScriptConfigurationWindow();
 	m_txtEdit = new TabTextEditor();
 	m_propertiesWid = new PropertiesWindow();
@@ -12,8 +14,8 @@ MainWindow::MainWindow(): QMainWindow()
 	m_file = menuBar()->addMenu("&File");
 	m_quit = new QAction("&Quit", this);
 	m_about = new QAction("&About", this);
-	m_sendTo = new QAction("&Send To...", this);
-	m_file->addAction(m_sendTo);
+	m_sendConfigTo = new QAction("&Send Config To...", this);
+	m_file->addAction(m_sendConfigTo);
 	m_file->addAction(m_about);
 	m_file->addAction(m_quit);
 
@@ -69,7 +71,7 @@ MainWindow::MainWindow(): QMainWindow()
 	QObject::connect(m_openConfigFile, SIGNAL(triggered()), this, SLOT(openConfigFile()));
 
 	QObject::connect(m_quit, SIGNAL(triggered()), qApp, SLOT(quit()));
-	QObject::connect(m_sendTo, SIGNAL(triggered()), this, SLOT(runSendWind()));
+	QObject::connect(m_sendConfigTo, SIGNAL(triggered()), this, SLOT(runSendWind()));
 }
 
 MainWindow::~MainWindow()
@@ -92,9 +94,9 @@ MainWindow::~MainWindow()
 	delete m_saveAsConfigFile;
 	delete m_quit;
 	delete m_about;
-	delete m_sendTo;
+	delete m_sendConfigTo;
 	delete m_file;
-	delete m_sendToWindow;
+	delete m_sendConfigToWindow;
 }
 
 void MainWindow::openFile()
@@ -106,11 +108,13 @@ void MainWindow::openFile()
 void MainWindow::saveAsConfigFile()
 {
 	QUrl path(QFileDialog::getSaveFileName(this));
-	Parsser::setFilePath(path.path().toStdString());
 	m_pyScripConfWid->setEditConfigFilePath(path.path());
-	ofstream out(path.path().toStdString());
-	auto root = Parsser::readConfigFile();
-	out << root;
+	// ofstream out(path.path().toStdString());
+	// auto root = Parsser::readConfigFile();
+	Parsser::setFilePath(path.path().toStdString());
+	// out << root;
+
+	saveConfigFile();
 }
 
 void MainWindow::saveConfigFile()
@@ -135,5 +139,5 @@ void MainWindow::openConfigFile()
 
 void MainWindow::runSendWind()
 {
-	m_sendToWindow->showWind(QUrl(m_pyScripConfWid->getEditConfifFilePath()));
+	m_sendConfigToWindow->showWind(QUrl(m_pyScripConfWid->getEditConfifFilePath()));
 }

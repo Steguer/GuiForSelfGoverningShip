@@ -26,7 +26,7 @@ private:
 	PyScriptConfigurationWindow *m_pyScripConfWid;
 	TabTextEditor *m_txtEdit;
 	PropertiesWindow *m_propertiesWid;
-	SendToWindow *m_sendToWindow;
+	SendToWindow *m_sendConfigToWindow;
 	QDockWidget *m_pyScriptConfDock;
 	QDockWidget *m_propertiesDock;
 	QMenu *m_sciptFile;
@@ -46,7 +46,7 @@ private:
 
 	QAction *m_quit;
 	QAction *m_about;
-	QAction *m_sendTo;
+	QAction *m_sendConfigTo;
 };
 
 #endif

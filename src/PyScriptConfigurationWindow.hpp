@@ -15,6 +15,7 @@ public:
 	~PyScriptConfigurationWindow();
 
 	void setEditConfigFilePath(QString const& str);
+	QString getEditConfifFilePath();
 
 public slots:
 	void save();
@@ -24,7 +25,6 @@ private:
 	QTabWidget *m_tab;
 	QVBoxLayout *m_vbox;
 	QHBoxLayout *m_hbox;
-	QPushButton *m_exploreConfigFileButton;
 	QLineEdit *m_editConfigFilePath;
 	QLabel *m_configFilePathLabel;
 	QString m_configFilePath;

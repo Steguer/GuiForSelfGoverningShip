@@ -23,6 +23,7 @@ public:
 
 		//Opening of the config file.
 		ifstream inFile(m_filePath);
+		std::cout<<m_filePath<<std::endl;
 
 		if(inFile)
 		{
@@ -61,6 +62,11 @@ public:
 	static bool readConfigBool(string const& id)
 	{
 		return (Parsser::readConfig(id)).asBool();
+	}
+
+	static double readConfigDouble(string const& id)
+	{
+		return (Parsser::readConfig(id)).asDouble();
 	}
 
 	template <typename T>

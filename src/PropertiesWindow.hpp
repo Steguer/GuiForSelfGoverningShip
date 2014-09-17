@@ -9,6 +9,7 @@ typedef struct PropLine PropLine;
 struct PropLine
 {
 	QLineEdit *editText;
+	QCheckBox *checkBox;
 	QLabel *label;
 };
 
